@@ -7,7 +7,7 @@ const createProducts = async (req: Request, res: Response) => {
     console.log(req.body);
     const { product: productData } = req.body;
     //Zod validation
-      const zodParseData = productValidationSchema.parse(productData)
+    const zodParseData = productValidationSchema.parse(productData);
 
     // service ke call dibe
     const result = await productServices.createProductIntoDb(zodParseData);
@@ -25,6 +25,44 @@ const createProducts = async (req: Request, res: Response) => {
     });
   }
 };
+const getProducts = async (req: Request, res: Response) => {
+  try {
+    const result = await productServices.getProductsFromDb();
+
+    res.status(200).json({
+      success: true,
+      message: "Products fetched successfully",
+      data: result,
+    });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: "Something went wrong",
+      data: err,
+    });
+  }
+};
+const getSingleProduct = async (req: Request, res: Response) => {
+  try {
+    const {productId} = req.params
+    console.log(productId)
+    const result = await productServices.getSingleProductFromDb(productId);
+
+    res.status(200).json({
+      success: true,
+      message: "Products fetched successfully",
+      data: result,
+    });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: "Something went wrong",
+      data: err,
+    });
+  }
+};
 export const productsController = {
   createProducts,
+  getProducts,
+  getSingleProduct
 };
