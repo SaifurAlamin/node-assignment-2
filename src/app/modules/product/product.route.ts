@@ -8,6 +8,7 @@ route.post('/create-product',productsController.createProducts)
 route.get('/',productsController.getProducts)
 route.get('/:productId',productsController.getSingleProduct)
 route.put('/:productId',productsController.updateProductById)
+route.delete('/:productId',productsController.deleteProductByID)
 
 
 

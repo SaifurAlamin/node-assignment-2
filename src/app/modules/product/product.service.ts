@@ -20,10 +20,16 @@ const updateProductByID = async (id:string,body:object)=>{
     console.log('result',result)
     return result;
 }
+const deleteProductByID = async (id:string)=>{
+    const result = await ProductModel.deleteOne({ _id:(id)})
+    console.log('result',result)
+    return result;
+}
 
 export const productServices={
     createProductIntoDb,
     getProductsFromDb,
     getSingleProductFromDb,
-    updateProductByID
+    updateProductByID,
+    deleteProductByID
 }

@@ -27,8 +27,8 @@ const createProducts = async (req: Request, res: Response) => {
 };
 const getProducts = async (req: Request, res: Response) => {
   try {
-    const searchItem:any = req.query.searchTerm
-    const result = await productServices.getProductsFromDb(searchItem);
+    
+    const result = await productServices.getProductsFromDb();
     
     res.status(200).json({
       success: true,
@@ -43,6 +43,8 @@ const getProducts = async (req: Request, res: Response) => {
     });
   }
 };
+
+//getallProducts
 const getSingleProduct = async (req: Request, res: Response) => {
   try {
     const {productId} = req.params
@@ -62,6 +64,8 @@ const getSingleProduct = async (req: Request, res: Response) => {
     });
   }
 };
+
+////Update product by id
 const updateProductById = async (req: Request, res: Response) => {
   try {
     const {productId} = req.params
@@ -83,9 +87,31 @@ const updateProductById = async (req: Request, res: Response) => {
     });
   }
 };
+
+//delete product by id
+const deleteProductByID = async (req: Request, res: Response) => {
+  try {
+    const {productId} = req.params
+    console.log(productId)
+    const result = await productServices.deleteProductByID(productId);
+
+    res.status(200).json({
+      success: true,
+      message: "Products deleted  successfully",
+      data: result,
+    });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: "Something went wrong",
+      data: err,
+    });
+  }
+};
 export const productsController = {
   createProducts,
   getProducts,
   getSingleProduct,
-  updateProductById
+  updateProductById,
+  deleteProductByID
 };
