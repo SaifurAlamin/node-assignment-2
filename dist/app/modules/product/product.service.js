@@ -19,15 +19,18 @@ const getProductsFromDb = () => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield product_model_1.ProductModel.find();
     return result;
 });
+//get single Product by
 const getSingleProductFromDb = (id) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield product_model_1.ProductModel.findOne({ _id: (id) });
     return result;
 });
+//updateProduct
 const updateProductByID = (id, body) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield product_model_1.ProductModel.updateOne({ _id: (id) }, body);
     console.log('result', result);
     return result;
 });
+//delete product 
 const deleteProductByID = (id) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield product_model_1.ProductModel.deleteOne({ _id: (id) });
     console.log('result', result);
