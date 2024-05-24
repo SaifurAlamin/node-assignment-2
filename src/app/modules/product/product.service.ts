@@ -15,6 +15,8 @@ const getSingleProductFromDb = async (id:string)=>{
     const result = await ProductModel.findOne({ _id:(id) })
     return result;
 }
+
+//updateProduct
 const updateProductByID = async (id:string,body:object)=>{
     const result = await ProductModel.updateOne({ _id:(id)},body)
     console.log('result',result)
