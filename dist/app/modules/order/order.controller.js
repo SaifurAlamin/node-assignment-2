@@ -29,6 +29,25 @@ const createOrders = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         });
     }
 });
+// get Orders 
+const getOrders = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const result = yield order_service_1.orderServices.getOrdersFromDb();
+        res.status(200).json({
+            success: true,
+            message: "Orders fetched successfully",
+            data: result,
+        });
+    }
+    catch (err) {
+        res.status(500).json({
+            success: false,
+            message: "Something went wrong",
+            data: err,
+        });
+    }
+});
 exports.orderController = {
-    createOrders
+    createOrders,
+    getOrders
 };

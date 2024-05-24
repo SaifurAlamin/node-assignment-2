@@ -37,6 +37,7 @@ const createProducts = (req, res) => __awaiter(void 0, void 0, void 0, function*
         });
     }
 });
+//getallProducts
 const getProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const result = yield product_service_1.productServices.getProductsFromDb();
@@ -54,7 +55,7 @@ const getProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         });
     }
 });
-//getallProducts
+//get singlePrduct
 const getSingleProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { productId } = req.params;
