@@ -11,6 +11,7 @@ const getProductsFromDb = async ()=>{
     const result = await ProductModel.find()
     return result;
 }
+//get single Product by
 const getSingleProductFromDb = async (id:string)=>{
     const result = await ProductModel.findOne({ _id:(id) })
     return result;
