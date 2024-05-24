@@ -25,6 +25,8 @@ const createProducts = async (req: Request, res: Response) => {
     });
   }
 };
+//getallProducts
+
 const getProducts = async (req: Request, res: Response) => {
   try {
     
@@ -40,11 +42,12 @@ const getProducts = async (req: Request, res: Response) => {
       success: false,
       message: "Something went wrong",
       data: err,
+      
     });
   }
 };
+//get singlePrduct
 
-//getallProducts
 const getSingleProduct = async (req: Request, res: Response) => {
   try {
     const {productId} = req.params

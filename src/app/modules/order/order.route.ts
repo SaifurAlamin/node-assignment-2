@@ -5,7 +5,8 @@ import { orderController } from './order.controller';
 
 const route = express.Router()
 
-route.post('/create', orderController.createOrders)
+route.post('/', orderController.createOrders)
+route.get('/', orderController.getOrders)
 
 
 

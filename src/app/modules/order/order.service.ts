@@ -19,7 +19,13 @@ const createOrderIntoDb = async (order: Order) => {
   const result = await orderModel.create(order);
   return result;
 };
+//get products
+const getOrdersFromDb = async ()=>{
+  const result = await orderModel.find()
+  return result;
+}
 
 export const orderServices = {
   createOrderIntoDb,
+  getOrdersFromDb
 };
