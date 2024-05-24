@@ -22,6 +22,8 @@ const updateProductByID = async (id:string,body:object)=>{
     console.log('result',result)
     return result;
 }
+//delete product 
+
 const deleteProductByID = async (id:string)=>{
     const result = await ProductModel.deleteOne({ _id:(id)})
     console.log('result',result)
